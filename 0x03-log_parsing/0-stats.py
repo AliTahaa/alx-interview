@@ -1,12 +1,16 @@
 #!/usr/bin/python3
-""" parsing """
+"""
+log parsing
+"""
 
 import sys
 import re
 
 
 def output(log: dict) -> None:
-    """ helper function to display stats """
+    """
+    helper function to display stats
+    """
     print("File size: {}".format(log["file_size"]))
     for code in sorted(log["code_frequency"]):
         if log["code_frequency"][code]:
@@ -25,9 +29,9 @@ if __name__ == "__main__":
             200, 301, 400, 401, 403, 404, 405, 500]}
 
     try:
-        for l in sys.stdin:
-            l = l.strip()
-            match = regex.fullmatch(l)
+        for line in sys.stdin:
+            line = line.strip()
+            match = regex.fullmatch(line)
             if (match):
                 line_count += 1
                 code = match.group(1)
