@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Log parsing
-"""
+""" log parsing """
 
 import sys
 
@@ -18,9 +16,9 @@ if __name__ == '__main__':
                 print("{}: {}".format(k, v))
 
     try:
-        for line in sys.stdin:
+        for l in sys.stdin:
             count += 1
-            data = line.split()
+            data = l.split()
             try:
                 status_code = data[-2]
                 if status_code in stats:
