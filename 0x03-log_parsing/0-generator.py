@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-'''A script that generates random HTTP request logs.
-'''
-import random
+""" generates random HTTP request logs. """
 import sys
+import random
 import datetime
 from time import sleep
 
 
-for i in range(10000):
+for n in range(10000):
     sleep(random.random())
     sys.stdout.write("{:d}.{:d}.{:d}.{:d} - [{}] \"GET {} {}\" {} {}\n".format(
         random.randint(1, 255),
