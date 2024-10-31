@@ -13,17 +13,18 @@ def get_leading_set_bits(n):
 
 
 def validUTF8(data):
-    """ determines
-    represents a valid UTF-8 encoding """
+    """ represents a valid UTF-8 encoding """
     bits_c = 0
-    for i in range(len(data)):
+    length = len(data)
+    for i in range(length):
         if bits_c == 0:
             bits_c = get_leading_set_bits(data[i])
             """ 1-byte
             format: 0xxxxxxx """
             if bits_c == 0:
                 continue
-            """ a character in UTF-8 can be 1 to 4 bytes long """
+            """ a character in UTF-8 
+            can be 1 to 4 bytes long """
             if bits_c == 1 or bits_c > 4:
                 return False
         else:
