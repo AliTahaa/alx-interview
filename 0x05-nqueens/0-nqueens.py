@@ -47,11 +47,11 @@ if __name__ == "__main__":
     print("Usage: nqueens N")
     sys.exit(1)
   try:
-    n = int(args[1])
-    if n < 4:
+    i = int(args[1])
+    if i < 4:
       print("N must be at least 4")
       sys.exit(1)
-    nqueens(n)
+    nqueens(i)
   except ValueError:
     print("N must be a number")
     sys.exit(1)
