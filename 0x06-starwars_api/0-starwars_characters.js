@@ -16,9 +16,9 @@ const req = (array, n) => {
 
 req(
   `https://swapi-api.hbtn.io/api/films/${process.argv[2]}`,
-  (error, resp, body) => {
-    if (error) {
-      throw error;
+  (err, response, body) => {
+    if (err) {
+      throw err;
     } else {
       const chars = JSON.parse(body).characters;
       req(chars, 0);
