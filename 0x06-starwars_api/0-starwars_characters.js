@@ -4,11 +4,11 @@ const req = require('request');
 
 const req = (array, n) => {
   if (n === array.length) return;
-  req(array[n], (error, resp, b) => {
-    if (error) {
-      throw error;
+  req(array[n], (err, response, body) => {
+    if (err) {
+      throw err;
     } else {
-      console.log(JSON.parse(b).name);
+      console.log(JSON.parse(body).name);
       req(array, n + 1);
     }
   });
@@ -16,11 +16,11 @@ const req = (array, n) => {
 
 req(
   `https://swapi-api.hbtn.io/api/films/${process.argv[2]}`,
-  (error, resp, b) => {
+  (error, resp, body) => {
     if (error) {
       throw error;
     } else {
-      const chars = JSON.parse(b).characters;
+      const chars = JSON.parse(body).characters;
       req(chars, 0);
     }
   }
