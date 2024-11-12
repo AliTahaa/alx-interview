@@ -1,26 +1,26 @@
 #!/usr/bin/node
 
-const req = require('request');
+const requ = require('request');
 
-const req = (arr, i) => {
-  if (i === arr.length) return;
-  req(arr[i], (err, response, body) => {
-    if (err) {
-      throw err;
+const req = (array, n) => {
+  if (n === array.length) return;
+  requ(array[n], (error, resp, b) => {
+    if (error) {
+      throw error;
     } else {
-      console.log(JSON.parse(body).name);
-      req(arr, i + 1);
+      console.log(JSON.parse(b).name);
+      req(array, n + 1);
     }
   });
 };
 
-req(
+requ(
   `https://swapi-api.hbtn.io/api/films/${process.argv[2]}`,
-  (err, response, body) => {
-    if (err) {
-      throw err;
+  (error, resp, b) => {
+    if (error) {
+      throw error;
     } else {
-      const chars = JSON.parse(body).characters;
+      const chars = JSON.parse(b).characters;
       req(chars, 0);
     }
   }
