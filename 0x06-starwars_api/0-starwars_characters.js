@@ -2,14 +2,14 @@
 
 const req = require('request');
 
-const req = (array, n) => {
-  if (n === array.length) return;
-  req(array[n], (err, response, body) => {
+const req = (arr, i) => {
+  if (i === arr.length) return;
+  req(arr[i], (err, response, body) => {
     if (err) {
       throw err;
     } else {
       console.log(JSON.parse(body).name);
-      req(array, n + 1);
+      req(arr, i + 1);
     }
   });
 };
