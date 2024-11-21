@@ -9,8 +9,8 @@ def rotate_2d_matrix(matrix):
 
 
 if __name__ == '__main__':
-    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
     """ rotate 2d matrix """
-    rotate_2d_matrix(matrix)
-    print(matrix)
+    rotate_2d_matrix(mat)
+    print(mat)
